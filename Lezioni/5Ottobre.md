@@ -111,6 +111,7 @@
 ## `Letterali interi`
 + Decimali, binari, ottali, esadecimali
 + Esempio:
+
     ``` java
     byte b = 10; // notazione decimale: b vale 10
     short s = 022; // notazione ottale: s vale 18
@@ -121,10 +122,12 @@
 
     int n = 0b1010...0101
     // notazione binaria: n vale - 1589272251
-    ``` 
+    ```
+ 
 + `Nota: assegnazione fuori range -> errore di compilazione`
 
 ## Promozioni di tipo
+
     ``` java
     byte b = 200; // ERRORE
 
@@ -135,6 +138,18 @@
     byte b = 50;
     b = b * 2; // ERRORE
     ```
+
 Anche se 100 può stare in una variabile di tipo byte potrebbe segnalare un errore!
 
+### Promozione automatica nelle espressioni aritmetiche
++ Se uno degli operandi è `double` l'altro verrà convertito in `double`
++ Se il più ampio (il tipo più grande degli operandi) degli operandi è `float` l'altro verrà convertito in `float`
++ Se il più ampio degli operandi è `long` l'altro verrà convertito in `long`
++ In tutti gli altri casi entrambi gli operandi sono convertiti in `int`
 
+## Casting esplicito
+
++ b = (byte) (b * 2); // OK
++ b = (byte)128; // OK ma b vale -128;
+    + 128 è un int a 32 bit e viene troncato prendendo solo gli 8 bit meno significativi
+`DA USARE CON CAUTELA E CONSAPEVOLEZZA!`
