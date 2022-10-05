@@ -1,9 +1,10 @@
 # Programmazione 05/10/22
 ---
-### titolo TITOLO
-blablablablablalbalbù
+## llll
 
-lbalbalbadlbpèrlbrrbplaèbl
-
-frèBKLèPRKBèPARKBAEERèOB
-EèORKBèPOERKBPOAEKRBPOKBAE
+    // a
+    public class a{
+        public static void main(String args[]){
+            System.out.println("Hello World");
+        }
+    }
