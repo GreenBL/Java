@@ -36,3 +36,12 @@
         public int y;
     }
 ```
+### Costruttore di default
++ Inserito automaticamente dal compilatore
++ Solo se il programmatore non ne ha fornito uno esplicitamente!
+---
+## Packages
++ Organizzare il codice in cartelle
++ Il comando import
++ Come fa una classe a usare classi che si trovano in altre cartelle/package?
++ Ruolo dell'IDE
