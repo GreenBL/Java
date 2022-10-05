@@ -62,7 +62,7 @@
 + Espressioni lambda (J8)
     + "Funzioni senza nome"
 ---
-## Identificatori, tipi di dati e array
+# Identificatori, tipi di dati e array
 + Lo stile di codifica è molto analogo al linguaggio C. **Java è un linguaggio a schema libero.**
 + Ovviamente la tabulazione non è necessaria (se vuoi criptare un programma)
 + E' case sensitive come C
@@ -71,11 +71,11 @@
         + I commenti Javadoc messi in una determinata posizione generano documentazione in HTML.
 
 
-+ ## Identificatori
-    + Nomi di metodi, classi, oggetti, variabili, costanti, ecc.
-    + Non possono coincidere con le parole chiave di Java
-    + Primo carattere A - Z, a - z, _ , $
-    + Secondo e successivi A - Z, a - z, _, $, 0 - 9
+## Identificatori
++ Nomi di metodi, classi, oggetti, variabili, costanti, ecc.
++ Non possono coincidere con le parole chiave di Java
++ Primo carattere A - Z, a - z, _ , $
++ Secondo e successivi A - Z, a - z, _, $, 0 - 9
 
 
 
