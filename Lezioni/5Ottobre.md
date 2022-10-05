@@ -43,5 +43,6 @@
 ## Packages
 + Organizzare il codice in cartelle
 + Il comando import
+    + Evita di scrivere il nome del package completo
 + Come fa una classe a usare classi che si trovano in altre cartelle/package?
 + Ruolo dell'IDE
