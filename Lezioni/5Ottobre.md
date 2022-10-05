@@ -221,6 +221,29 @@ Anche se 100 può stare in una variabile di tipo byte potrebbe segnalare un erro
 + Sono interscambiabili con tipi primitivi grazie a autoboxing-autounboxing
 #### Nota: Esistono anche due classi per numeri a precisione arbitraria `BigDecimal` e `BigInteger` definite in `java.math`
 
+## Costanti statiche in Float e Double
++ Float.NaN
++ Float.NEGATIVE_INFINITY
++ Float.POSITIVE_INFINITY
++ Double.NaN
++ Double.NEGATIVE_INFINITY
++ Double.POSITIVE_INFINITY
 
+``` java
+    double d = -10.0 / 0.0; // 0.0 è approssimato = 0.0000000000000001 per es.
+    System.out.println(d); // Stampa "-Infinity"
+```
++ Lo stesso non vale per gli interi
+
+## Underscore in letterali numerici
++ Per migliorare la leggibilità si possono usare `_`
+``` java
+    int i = 1_000_000_000;
+```
++ Limitazioni:
+    + NO ad inizio o fine numero
+    + NO adiacente a punto decimale
+    + ...
+    
 
 
