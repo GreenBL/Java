@@ -1,5 +1,5 @@
 # Programmazione 05/10/22
----
+
 ## Costruttori
 + Stesso nome della classe
 + Nessun tipo di ritorno
@@ -39,7 +39,7 @@
 ### Costruttore di default
 + Inserito automaticamente dal compilatore
 + Solo se il programmatore non ne ha fornito uno esplicitamente!
----
+
 ## Packages
 + Organizzare il codice in cartelle
 + Il comando import
@@ -48,7 +48,7 @@
     + es: import java.util.ArrayList
 + Come fa una classe a usare classi che si trovano in altre cartelle/package?
 + Ruolo dell'IDE
----
+
 ## Altri componenti
 + Interfacce
     + Strumento utile per la progettazione
@@ -61,7 +61,7 @@
 + Classi innestate
 + Espressioni lambda (J8)
     + "Funzioni senza nome"
----
+
 # Identificatori, tipi di dati e array
 + Lo stile di codifica è molto analogo al linguaggio C. **Java è un linguaggio a schema libero.**
 + Ovviamente la tabulazione non è necessaria (se vuoi criptare un programma)
@@ -233,7 +233,7 @@ Anche se 100 può stare in una variabile di tipo byte potrebbe segnalare un erro
     double d = -10.0 / 0.0; // 0.0 è approssimato = 0.0000000000000001 per es.
     System.out.println(d); // Stampa "-Infinity"
 ```
-+ Lo stesso non vale per gli interi
++ Lo stesso non vale per gli interi ovviamente, 0 è 0.
 
 ## Underscore in letterali numerici
 + Per migliorare la leggibilità si possono usare `_`
