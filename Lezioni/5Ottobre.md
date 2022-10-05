@@ -43,6 +43,27 @@
 ## Packages
 + Organizzare il codice in cartelle
 + Il comando import
-    + Evita di scrivere il nome del package completo
+    + Evita di scrivere il nome del package completo (es. java.lang.String)
+    + java.lang è sempre importato automaticamente dal compilatore
+    + es: import java.util.ArrayList
 + Come fa una classe a usare classi che si trovano in altre cartelle/package?
 + Ruolo dell'IDE
+---
+## Altri componenti
++ Interfacce
+    + Strumento utile per la progettazione
++ Enumerazioni
++ Annotazioni
++ Moduli (J9)
+    + es: java.base
+    + Si usa per progettare programmi di dimensioni elevate
++ Inizializzatori
++ Classi innestate
++ Espressioni lambda (J8)
+    + "Funzioni senza nome"
+---
+## Identificatori, tipi di dati e array
++ Lo stile di codifica è molto analogo al linguaggio C.
+    **Java è un linguaggio a schema libero**
+
+    
