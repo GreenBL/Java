@@ -7,6 +7,7 @@
 + Ce ne possono essere diversi per la stessa classe
 + Chiamati automaticamente in fase di istanziazione
 
+
     // Esempio
     public class Punto {
         public Punto(int a, int b){
