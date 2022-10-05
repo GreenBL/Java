@@ -77,7 +77,7 @@
 + Primo carattere A - Z, a - z, _ , $
 + Secondo e successivi A - Z, a - z, _, $, 0 - 9
 
-# Convenzioni sui nomi
+### Convenzioni sui nomi
 + Nomi significativi
 + Classi
     + Usare il singolare
@@ -89,9 +89,52 @@
     + Metodi -> verbi (es. stampaPerimetro)
 + Costanti
     + Tutte maiuscole
-    + `_` per separare le parole (es: `PI_GRECO`)
+    + `_` per separare le parole (es: PI_GRECO)
 + Package
     + Tutte minuscole (es: it.lacascia.prg)
 
+## `Tipi di dati primitivi`
++ Soltanto 8 tipi:
+    + `interi` : byte, short, int, long
+    + `floating point` : float e double
+    + `testuale` : char
+    + `logico-booleano` : boolean
++ Non ci sono gli unsigned come in C
+
+| Tipo      | Intervallo di rappresentazione |
+| --------- | -----------------------------  |
+| byte      |   8 bit                        |
+| short     |   16 bit                       |
+| int       |   32 bit                       |
+| long      |   64 bit                       |
+
+## `Letterali interi`
++ Decimali, binari, ottali, esadecimali
++ Esempio:
+    ``` java
+    byte b = 10; // notazione decimale: b vale 10
+    short s = 022; // notazione ottale: s vale 18
+    long l = 0x12acd; // notazione esadecimale: l vale 76493
+
+    int i = 1000000000;
+    // notazione decimale: i vale 1000000000
+
+    int n = 0b1010...0101
+    // notazione binaria: n vale - 1589272251
+    ``` 
++ `Nota: assegnazione fuori range -> errore di compilazione`
+
+## Promozioni di tipo
+    ``` java
+    byte b = 200; // ERRORE
+
+    byte b = 50; // OK
+
+    byte b = 50 * 2; // OK
+
+    byte b = 50;
+    b = b * 2; // ERRORE
+    ```
+Anche se 100 può stare in una variabile di tipo byte potrebbe segnalare un errore!
 
 
