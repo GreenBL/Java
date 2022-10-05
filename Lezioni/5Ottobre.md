@@ -71,11 +71,27 @@
         + I commenti Javadoc messi in una determinata posizione generano documentazione in HTML.
 
 
-## Identificatori
+## `Identificatori`
 + Nomi di metodi, classi, oggetti, variabili, costanti, ecc.
 + Non possono coincidere con le parole chiave di Java
 + Primo carattere A - Z, a - z, _ , $
 + Secondo e successivi A - Z, a - z, _, $, 0 - 9
+
+# Convenzioni sui nomi
++ Nomi significativi
++ Classi
+    + Usare il singolare
+    + Iniziano con lettera maiuscola
+    + Maiuscolo per separare le parole
++ Variabili e metodi
+    + Iniziano con lettera minuscola
+    + Variabili -> sostantivi (es. numeroLati)
+    + Metodi -> verbi (es. stampaPerimetro)
++ Costanti
+    + Tutte maiuscole
+    + `_` per separare le parole (es: `PI_GRECO`)
++ Package
+    + Tutte minuscole (es: it.lacascia.prg)
 
 
 
