@@ -71,7 +71,7 @@
         + I commenti Javadoc messi in una determinata posizione generano documentazione in HTML.
 
 
-## `Identificatori`
+## Identificatori
 + Nomi di metodi, classi, oggetti, variabili, costanti, ecc.
 + Non possono coincidere con le parole chiave di Java
 + Primo carattere A - Z, a - z, _ , $
@@ -93,7 +93,7 @@
 + Package
     + Tutte minuscole (es: it.lacascia.prg)
 
-## `Tipi di dati primitivi`
+## Tipi di dati primitivi
 + Soltanto 8 tipi:
     + `interi` : byte, short, int, long
     + `floating point` : float e double
@@ -108,7 +108,7 @@
 | int       |   32 bit                       |
 | long      |   64 bit                       |
 
-## `Letterali interi`
+## Letterali interi
 + Decimali, binari, ottali, esadecimali
 + Esempio:
 
@@ -152,4 +152,76 @@ Anche se 100 può stare in una variabile di tipo byte potrebbe segnalare un erro
 + b = (byte) (b * 2); // OK
 + b = (byte)128; // OK ma b vale -128;
     + 128 è un int a 32 bit e viene troncato prendendo solo gli 8 bit meno significativi
+
 `DA USARE CON CAUTELA E CONSAPEVOLEZZA!`
+
+## Troncamento in caso di overflow
+``` java
+    int a = 2147483647; // massimo valore per un int
+    int b = 1;
+    int risultato = a + b;
+```
+
++ La variabile risultato vale -2147483648
+
++ Possibile soluzione : usare `long`
+    + `long` risultato = a+b; // `Non corretto`
+    + Si perde b perché l'operazione a + b è sempre somma tra interi
+        + `long` risultato = `(long)` a + b; // Corretto
+#### NOTE
++ un letterale intero viene considerato int
++ a un long si può assegnare un int (cast implicito)
++ si può forzare un letterale inetro a long col suffisso `L`
++ Mai fare `==` tra float, solo relazioni (`>`, `<`, ...) o differenza
+
+## Letterali in virgola mobile
++ Notazione normale o scientifica
+
+``` java
+    double d = 126.5;
+    double d = 1.265E+2;
+```
++ Per default il tipo è double
+    ``` java
+    float f = 3.14; // Errore
+    ```
++ Cast esplicito abbreviato: il suffisso `F` (oppure `f`)
+    ``` java
+    float f = 3.14F; // OK
+    float f = (float)3.14;
+    ```
+## Tipo di dato booleano
++ __boolean__ : può assumere solo i valori `true` e `false`
+    + Non è sicuro usare `0` e `1`
+
+``` java
+    boolean b = true;
+    ...
+    b = false;
+```
+
+## Tipo di dato carattere
++ Utilizza la codifica UNICODE UTF - 16
++ Si possono rappresentare la maggior parte dei caratteri degli alfabeti del mondo
++ Si può assegnare direttamente o tramite valore Unicode esadecimale:
+``` java
+    char primoCarattere = 'a';
+    char car = '@';
+    char letteraGrecaPhi = '\u03a6';
+```
++ Si possono usare i caratteri escape come in C:
+    + \n, \t, \\, \', \", ...
+
+# Classi wrapper
++ Definite nella libreria standard in corrispondenza dei tipi primitivi:
+    + Integer -> int
+    + Short -> short
+    + Float -> float
+    + ...
++ Sono interscambiabili con tipi primitivi grazie a autoboxing-autounboxing
+#### Nota: Esistono anche due classi per numeri a precisione arbitraria `BigDecimal` e 
+`BigInteger` definite in `java.math`
+
+
+
+
