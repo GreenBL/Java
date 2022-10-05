@@ -125,6 +125,7 @@
     ```
  
 + `Nota: assegnazione fuori range -> errore di compilazione`
+<div class="page"/>
 
 ## Promozioni di tipo
 
@@ -185,6 +186,8 @@ Anche se 100 può stare in una variabile di tipo byte potrebbe segnalare un erro
     ``` java
     float f = 3.14; // Errore
     ```
+<div class="page"/>
+
 + Cast esplicito abbreviato: il suffisso `F` (oppure `f`)
     ``` java
     float f = 3.14F; // OK
@@ -211,6 +214,8 @@ Anche se 100 può stare in una variabile di tipo byte potrebbe segnalare un erro
 ```
 + Si possono usare i caratteri escape come in C:
     + \n, \t, \\, \', \", ...
+
+<div class="page"/>
 
 # Classi wrapper
 + Definite nella libreria standard in corrispondenza dei tipi primitivi:
