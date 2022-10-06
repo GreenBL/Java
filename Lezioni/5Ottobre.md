@@ -129,7 +129,7 @@
 
 ## Promozioni di tipo
 
-    ``` java
+``` java
     byte b = 200; // ERRORE
 
     byte b = 50; // OK
@@ -138,7 +138,7 @@
 
     byte b = 50;
     b = b * 2; // ERRORE
-    ```
+```
 
 Anche se 100 può stare in una variabile di tipo byte potrebbe segnalare un errore!
 
