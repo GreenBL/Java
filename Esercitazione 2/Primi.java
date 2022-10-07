@@ -1,16 +1,10 @@
+// Presupponendo che nella stessa directory ci sia "NumeroIntero.class"
 public class Primi{
 	public static void main(String args[]){
-		int divcount = 0;
-		for (int i = 2; i < 100; i++){ 
-			divcount = 0; 
-			for (int j = 2; j <= i / 2; j++){
-				if (i % j == 0){ 
-					divcount++;;
-					break; 
-				}
-			}
-			if (divcount == 0){ 
-			System.out.println(i);
+		NumeroIntero num = new NumeroIntero();
+		for (num.numeroIntero = 2; num.numeroIntero < 100; num.numeroIntero++){ 
+			if (num.èPrimo()){
+				System.out.println(num.numeroIntero);
 			}
 		}
 	}

@@ -10,4 +10,13 @@ public class NumeroIntero {
 	public void stampaNumero() {
 		System.out.println(numeroIntero);
 	}
+
+	public boolean èPrimo(){
+		for(int i = 2; i <= numeroIntero / 2; i++){
+			if(numeroIntero % i == 0){
+				return false;
+			}
+		}
+		return true;
+	}
 }
