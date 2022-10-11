@@ -1,5 +1,6 @@
-# Componenti di un programma Java
-## Outline
+# Programmazione 04/10/22
+
+## Componenti di un programma Java - Outline
 + Classi
 + Oggetti
 + Attributi (dati membro)

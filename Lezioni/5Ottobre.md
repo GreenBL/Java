@@ -224,7 +224,8 @@ Anche se 100 può stare in una variabile di tipo byte potrebbe segnalare un erro
     + Float -> float
     + ...
 + Sono interscambiabili con tipi primitivi grazie a autoboxing-autounboxing
-#### Nota: Esistono anche due classi per numeri a precisione arbitraria `BigDecimal` e `BigInteger` definite in `java.math`
+#### Nota: 
+Esistono anche due classi per numeri a precisione arbitraria `BigDecimal` e `BigInteger` definite in `java.math`
 
 ## Costanti statiche in Float e Double
 + Float.NaN
@@ -248,7 +249,7 @@ Anche se 100 può stare in una variabile di tipo byte potrebbe segnalare un erro
 + Limitazioni:
     + NO ad inizio o fine numero
     + NO adiacente a punto decimale
-    + ...
+    + NO prima dei suffissi F o L 
     
 
 
