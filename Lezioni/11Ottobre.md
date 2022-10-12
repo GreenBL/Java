@@ -245,6 +245,6 @@ Quadrato b[] = {new Quadrato(), new Quadrato(), new Quadrato(), new Quadrato(), 
 + `a.length` varrà 10, `b.length` varrà 
 
 + Differenza fra array di tipi primitivi e di oggetti
-  + Array di oggetti contiene reference, i corrispondenti oggetti vanno istanziati singolarmente
+  + Array di oggetti contiene reference, <p style="color:red">i corrispondenti oggetti vanno istanziati singolarmente</p>
 
 
