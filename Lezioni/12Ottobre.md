@@ -114,14 +114,52 @@ public class HelloCommand {
 
 ### Operatori di pre/post incremento/decremento
 + Funzionano come in C
-... tabella dopo
 
-### Operatori bitwise (bit a bit)
+| Descrizione | Operatore | Esempio |
+| :-: | :-: | :-: | 
+| Pre-incremento di un'unità | `++` | ++i 
+| Pre-decremento di un'unità | `--` | --i
+| Post-incremento di un'unità | `++` | i++
+| Post-decremento di un'unità | `--` | i--
+```java
+i = i + 1;
+i += 1;
+++i; i++;
+```
+Nota bene : Se usati dentro un espressione hanno un comportamento diverso, se pre-incrementrato, viene prima aumentato il valore e poi utilizzato nell'espressione, altrimenti se post-incrementato, verrà utilizzato il valore senza incremento nell'espressione e verrà successivamente incrementato a operazione conclusa. Per il decremento funziona allo stesso modo. Questo è esattamente ciò che accade in C.
 
-... tabella dopo
+### Operatori bitwise (bit a bit)\
+
+| Descrizione | Operatore
+| :- | :-:
+| NOT | `~`
+| AND| `&`
+| OR| `|`
+| XOR| `^`
+| Shift a sinistra| `<<`
+| Shift a destra| `>>`
+| Shift a destra unsigned| `>>>`
+| AND e assegnazione| `&=`
+| OR e assegnazione | `|=`
+| XOR e assegnazione| `^=`
+| Shift a sinistra e assegnazione| `<<=`
+| Shift a destra e assegnazione| `>>=`
+| Shift a destra senza segno e assegnazione| `>>>=`
++ Esempio di un AND bitwise
+```javascript
+0001 & 0000 = 0000
+```
 
 ### Operatori relazionali
-+ Ritornano un boolean
+| Operatore | Simbolo | Applicabilità |
+| :- | :-: | :- | 
+| Uguale a | `==` | Tutti i tipi
+| Diverso da | `!=` | Tutti i tipi
+| Maggiore | `>` | Solo i tipi numerici
+| Minore | `<` | Solo i tipi numerici
+| Maggiore o uguale | `>=` | Solo i tipi numerici
+| Minore o uguale | `<=` | Solo i tipi numerici
++ Questi operatori usati in un'espressione ritornano un boolean
 
 ### Confronto tra oggetti
 
@@ -179,7 +217,18 @@ true
 ```
 
 ### Operatori logici
-... tabella dopo
+
+| Descrizione | Operatore |
+| :- | :-: | :- | 
+| NOT logico | `!` | 
+| AND logico | `&` | 
+| OR logico | `|` | 
+| Short circuit AND | `&&` | 
+| Short circuit OR | `||` | 
+| AND e assegnazione | `&=` | 
+| OR e assegnazione | `|=`
+| XOR e assegnazione | `^=`
++ Questi operatori usati in un'espressione ritornano un boolean
 
 + Si usano di più gli operatori di corto circuito
 ```java
@@ -213,11 +262,21 @@ La somma è 15
 ```
 
 ### Operatore ternario
-+ (espressione-booleana) ? espressione1 : espressione2;
+```java
+(espressione booleana) ? espressione1 : espressione2;
+```
 + Il tipo di ritorno sarà quello di espressione1 o espressione2 (non necessariamente uguali)
 + Non sostituisce __if__ ma a volte semplifica il codice
+Per esempio:
+```java
+int massimo = a > b ? a : b;
 
-ESE DA AGGIUNGE AO
+String query = "select * from table " +
+               (condition != null ? "where " + condition : "";);
+```
+In breve:
+
+L'espressione booleana è vera? Se si prima espressione, altrimenti seconda espressione.
 
   
 
