@@ -10,5 +10,6 @@ public class Principale{
         persona1.name = "Anna";
         persona1.surname = "Albero";
         System.out.println("\n" + persona3.toString());
+        System.out.println(persona1.equals(persona2));
     }
 }
