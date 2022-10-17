@@ -219,7 +219,7 @@ true
 ### Operatori logici
 
 | Descrizione | Operatore |
-| :- | :-: | :- | 
+| :- | :- | 
 | NOT logico | `!` | 
 | AND logico | `&` | 
 | OR logico | `|` | 
@@ -228,6 +228,7 @@ true
 | AND e assegnazione | `&=` | 
 | OR e assegnazione | `|=`
 | XOR e assegnazione | `^=`
+
 + Questi operatori usati in un'espressione ritornano un boolean
 
 + Si usano di più gli operatori di corto circuito
