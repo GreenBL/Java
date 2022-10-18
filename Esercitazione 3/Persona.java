@@ -16,8 +16,12 @@ public class Persona{
         return toReturn;
     }
     public boolean equals(Persona guy){
-        if(guy.age == age && guy.name == name && guy.surname == surname){
-            return true;
+        if(guy.age == age){
+            if(name.equals(guy.name)){
+                if(surname.equals(guy.surname)){
+                    return true;
+                }
+            }
         }
         return false;
     }
