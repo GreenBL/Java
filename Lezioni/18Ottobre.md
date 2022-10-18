@@ -1,3 +1,23 @@
 # `Programmazione 18/10/22`
-<!--- <p style="color:red">text_field</p> --->
-## Strutture di gestione del flusso di esecuzione
+<!--- <p style="color:crimson">text_field</p> --->
+## <p style="color:crimson">Strutture di gestione del flusso di esecuzione </p>
+
+## <p style="color:crimson">Title</p>
+
+## <p style="color:crimson">Title</p>
+
+## <p style="color:crimson">Title</p>
+
+## <p style="color:crimson">Title</p>
+
+## <p style="color:crimson">Title</p>
+
+## <p style="color:crimson">Title</p>
+
+## <p style="color:crimson">Title</p>
+
+## <p style="color:crimson">Title</p>
+
+## <p style="color:crimson">Title</p>
+
+## <p style="color:crimson">Title</p>
