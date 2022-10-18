@@ -6,7 +6,7 @@ public class Rettangolo{
 		altezza = h;
 	}
 	public int perimetro(){
-		return (2*base) + (2*altezza);
+		return (base + altezza) * 2;
 	}
 	public int area(){
 		return base * altezza;
