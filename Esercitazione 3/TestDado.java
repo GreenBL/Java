@@ -13,7 +13,7 @@ public class TestDado{
             dSum = d1 + d2;
             ++array[dSum - 2];
             if(dSum == 12){
-                System.out.println("-------->" + dSum);
+                System.out.println("-------->" + "(" + dSum + ")");
             }
             System.out.println(d1 + d2);
         }
@@ -23,6 +23,6 @@ public class TestDado{
         for(int i = 0; i < array.length; ++i){
             System.out.print(array[i] + "(" + (i + 2) + ")" + " ");
         }
-        System.out.print("]");
+        System.out.print("]\n");
     }
 }
