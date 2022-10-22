@@ -3,3 +3,4 @@
 
 # Java Bytecode
 .class
+*.class
