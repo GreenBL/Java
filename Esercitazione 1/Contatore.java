@@ -1,3 +1,5 @@
+package bin.es1;
+
 public class Contatore{
     public static void main(String args[]){
         int count = args.length;

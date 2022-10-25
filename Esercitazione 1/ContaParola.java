@@ -1,3 +1,5 @@
+package bin.es1;
+
 public class ContaParola{
     public static void main(String args[]){
         int ciaoCount = 0;

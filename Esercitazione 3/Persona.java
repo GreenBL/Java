@@ -1,8 +1,6 @@
-package prg.es03;
-
 public class Persona{
-    public String name = new String();
-    public String surname = new String();
+    public String name;
+    public String surname;
     public int age;
     public Persona(String newName, String newSurname, int newAge){
         name = newName;
@@ -11,18 +9,9 @@ public class Persona{
     }
 
     public String toString(){
-        String toReturn = new String();
-        toReturn = name + "\n" + surname + "\n" + age;
-        return toReturn;
+        return name + "\n" + surname + "\n" + age;
     }
     public boolean equals(Persona guy){
-        if(guy.age == age){
-            if(name.equals(guy.name)){
-                if(surname.equals(guy.surname)){
-                    return true;
-                }
-            }
-        }
-        return false;
+        return (this.age == guy.age) && (this.name.equals(guy.name)) && (this.surname.equals(guy.surname));
     }
 }
