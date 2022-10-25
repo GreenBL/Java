@@ -1,6 +1,3 @@
 # Mac shit
 .DS_store
 
-# Java Bytecode
-.class
-*.class
