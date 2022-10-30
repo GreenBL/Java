@@ -1,11 +1,11 @@
 package bin.es5;
-import java.lang.Double;
 import java.lang.Math;
 
 public class Punto{
     private double x, y;
-    private static int counter;
     private int localCount;
+    private static int counter;
+    private static final double range = 0.000000000000000000000001;
 
     public Punto(){
         this.setX(0);
@@ -41,7 +41,12 @@ public class Punto{
     }
 
     public boolean equals(Punto punto){
-        return (Double.compare(this.getX(), punto.getX()) == 0) && (Double.compare(this.getY(), punto.getY()) == 0);
+        double diffX = Math.abs(this.getX() - punto.getX());
+        double diffY = Math.abs(this.getY() - punto.getY());
+        if((diffX < range) && (diffY < range)){
+            return true;
+        }
+        return false;
     }
 
     public double distance(Punto punto){
