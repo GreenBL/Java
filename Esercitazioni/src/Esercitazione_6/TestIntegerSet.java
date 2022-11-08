@@ -28,6 +28,8 @@ public class TestIntegerSet{
       //  testSet2.insertElement(2);
         testSet2.insertElement(3);
         testSet2.insertElement(5);
+        testSet.insertElement(9);
+        testSet2.insertElement(9);
         IntegerSetv2 union = testSet.unionOfIntegerSet(testSet2);
         IntegerSetv2 intersection = testSet.intersectionOfIntegerSet(testSet2);
         

@@ -29,12 +29,23 @@ public class IntegerSetv2{
 
     public IntegerSetv2 unionOfIntegerSet(IntegerSetv2 other){ // broken , fix needed
         IntegerSetv2 union = new IntegerSetv2();
-        for(int e: this.set){
-         //   if((other.set).contains(e)){
-                (union.set).add(e);
-             //   continue;
-          //  }
+        int temp;
+        for(int i = 0; i < (this.set).size(); ++i){
+            temp = (this.set).get(i);
+            if(!(other.set).contains(temp)){
+                (union.set).add(temp);
+            }
+            if((other.set).contains(temp)){
+                (union.set).add(temp);
+            }
         }
+        for(int i = 0; i < (other.set).size(); ++i){
+            temp = (other.set).get(i);
+            if(!(this.set).contains(temp)){
+                (union.set).add(temp);
+            }
+        }
+
         return union;
     }
 
