@@ -1,6 +1,6 @@
 package bin.es6;
 
-public class Rectangle{
+public class Rectangle extends Shape{
     private int width;
     private int length;
 
@@ -40,7 +40,7 @@ public class Rectangle{
 
     public String toString(){
         return "Tipo : Rettangolo\n" + "Base = " + this.getWidth() + "\nAltezza = " + this.getLength() +
-               "\nPerimetro = " + this.getPerimeter() + "\nArea = " + this.getArea();
+               "\nPerimetro = " + this.getPerimeter() + "\nArea = " + this.getArea() + "\n" + super.toString() + "\n"; 
     }
     
 }

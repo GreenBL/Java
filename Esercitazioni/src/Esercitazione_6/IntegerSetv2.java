@@ -13,7 +13,7 @@ public class IntegerSetv2{
     }
 
     public void deleteElement(int element){
-        (this.set).remove(element);
+        (this.set).remove((Object)element);
     }
 
     public String toString(){

@@ -1,7 +1,6 @@
 package bin.es6;
 
-public class Square{
-    private int side;
+public class Square extends Rectangle{
 
     public Square(){
         this.setSide(1);
@@ -12,12 +11,13 @@ public class Square{
     }
 
     public void setSide(int l){
-        this.side = l;
+        super.setWidth(l);
+        super.setLength(l);
     }
 
 
     public int getSide(){
-        return this.side;
+        return super.getWidth();
     }
 
     public int getPerimeter(){
@@ -30,7 +30,7 @@ public class Square{
 
     public String toString(){
         return "Tipo : Quadrato\n" + "Lato = " + this.getSide() +
-               "\nPerimetro = " + this.getPerimeter() + "\nArea = " + this.getArea();
+               "\nPerimetro = " + this.getPerimeter() + "\nArea = " + this.getArea() + "\n";
     }
     
 }

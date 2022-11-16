@@ -32,7 +32,7 @@ public class TestIntegerSet{
         testSet2.insertElement(9);
         IntegerSetv2 union = testSet.unionOfIntegerSet(testSet2);
         IntegerSetv2 intersection = testSet.intersectionOfIntegerSet(testSet2);
-        
+        // testSet2.deleteElement(9);
         String ass = union.toString();
         String ass2 = intersection.toString();
         System.out.println(testSet.toString());
