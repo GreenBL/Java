@@ -268,3 +268,161 @@ NomeOggetto.nomeMembro
 Si può applicare anche ai metodi.
 
 Ma il modificatore _static_ non ha senso applicato a variabili locali, parametri di metodi e classi.
+
+### Variabili _static_
+Una variabile statica (_static_), viene condivisa da tutte le istanze della classe, e assumerà lo stesso valore per ogni oggetto di una classe. Una variabile globale nello scope dell'oggetto in poche parole.
+
+_Esempio_
+```java
+public class ClasseDiEsempio{
+    public static int a = 0;
+}
+```
+```java
+public class ClasseDiEsempioPrincipale {
+    public static void main (String args[]){
+    System.out.println("a = " + ClasseDiEsempio.a);
+    ClasseDiEsempio ogg1 = new ClasseDiEsempio();
+    ClasseDiEsempio ogg2 = new ClasseDiEsempio();
+    ogg1.a = 10;
+    System.out.println("ogg1.a = " + ogg1.a);
+    System.out.println("ogg2.a = " + ogg2.a);
+    ogg2.a = 20;
+    System.out.println("ogg1.a = " + ogg1.a);
+    System.out.println("ogg2.a = " + ogg2.a);
+    }
+}
+```
+In questo modo si puo' creare una variabile contatore che conta il numero di oggetti istanziati.
+
+_Esempio_
+```java
+public class Counter {
+    private static int counter = 0;
+    private int number;
+    public Counter() {
+        counter++;
+        setNumber(counter);
+    }
+    public void setNumber(int number) {
+    this.number = number;
+    }
+    public int getNumber() {
+        return number;
+    }
+}
+```
+```java
+.   .   .
+Counter c1 = new Counter();
+Counter c2 = new Counter();
+System.out.println(c2.getNumber()); // Stampa '2', 2 istanze
+```
+
+### Metodi _static_
+
+Metodi il cui effetto è indipendente dalla particolare istanza di oggetto ma dipende solo dalla classe.
+__Per esempio le funzioni matematiche della classe Math__
++ Math.sqrt(numero)
+    Math è il nome della classe e non di un’oggetto
++   Potrei istanziare due oggetti distinti Math m1 ed m2 e chiamare _m1.sqrt(numero)_ ed _m2.sqrt(numero)_ ma il risultato deve essere identico indipendentemente dall’oggetto chiamante il metodo.
+
+In questi casi particolari ha senso usare metodi statici
+
+_Un metodo public e static è praticamente una funzione_
+
++ Un metodo statico non puo' utilizzare variabili d'istanza, ma solo variabili statiche e locali.
++ Puo' invocare solo metodi _static_ 
++ Non ha accesso al reference _this_, non e' legato a nessun oggetto e quindi non avrebbe senso
+
+_Esempio_
+
+```java
+public class StaticMethod {
+    private int variabileDiIstanza;
+    private static int variabileDiClasse;
+    public static void main(String args[]) {
+        System.out.println(variabileDiIstanza); // ERR
+        System.out.println(variabileDiClasse); // OK
+    }
+}
+```
+
+#### Quando usare _static_
+Usare static raramente e solamente quando migliora la chiarezza del codice, come per esempio il contatore di istanze.
+
+Oppure quando concettualmente occorrono funzioni e non metodi, come succede nella classe _Math_
+
+Ma spesso viene utilizzato per definire COSTANTI di classe come attributi _public static final_
+
+Con metodi _set_ e _get_ static si puo' fare incapsulamento statico, cioe' incapsula la classe e non gli oggetti
+
+### Inizializzatore _static_
+
+L'inizializzatore statico e' un blocco di codice eseguito quando viene creato il __primo__ oggetto della classe.
+
+Viene eseguito prima del costruttore, ha accesso solo a variabili e metodi static, e puo' essere posizionato in qualsiasi punto all'interno della classe ma al di fuori di ogni metodo, inoltre se ne possono usare piu' di uno e verrano eseguiti tutti proceduralmente.
+
+_usato raramente_
+
+_Esempio_
+```java
+public class EsempioStatico {
+    private static int a = 10;
+    public EsempioStatico(){
+        a += 10;
+    }
+    static {
+    System.out.println("valore statico = " + a);
+    }
+}
+. . .
+EsempioStatico ogg = new EsempioStatico();
+```
+__Output:__
+valore statico = 10
+
+### Inizializzatori di istanza
+L'inizializzatore di istanza e' un blocco di codice eseguito quando viene creato __ogni__ oggetto della classe
+
+Viene eseguito prima del costruttore, posizionato ovunque nella classe tranne che nei metodi, e se ne possono avere piu' di uno, eseguiti proceduralmente.
+
+Anche questo _usato raramente_
+
+_Esempio_
+```java
+public class InstanceInit {
+    public InstanceInit (){
+        System.out.println("Costruttore");
+    }
+    {   
+    System.out.println("Inizializzatore");
+    }
+}
+. . .
+InstanceInit ogg = new InstanceInit();
+```
+__Output:__
+Inizializzatore
+Costruttore
+
+### _import static_
+l' _import static_ da' la possibilita' di importare solo gli elementi static di una classe o solo alcuni di essi.
+
+_Esempio_
+```java
+import static java.lang.Math.*;
+// importa tutti gli elementi static di Math
+```
+In questo modo possiamo usare gli elementi importati senza specificare il reference della classe (_NomeClasse._), per esempio
+```java
+d = sqrt(25.0); // era Math.sqrt()
+```
+
+Si possono anche importare membri specifici
+
+```java
+import static java.lang.Math.PI; // importa pi greco dalla classe Math
+import static java.lang.Math.random; // importa il metodo (funzione) random()
+```
+Da notare che per importare le funzioni non si mettono le parentesi nell'import.

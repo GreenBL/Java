@@ -1,17 +1,15 @@
 package bin.es6;
+import bin.es6.Point2D;
 
-public class Point3D {
+public class Point3D extends Point2D {
 
-    private double x;
-    private double y;
     private double z;
 
     public Point3D() {}
 
     public Point3D(double x, double y, double z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        super(x, y);
+        this.setZ(z);
     }
 
     public double getX() {
@@ -19,7 +17,7 @@ public class Point3D {
     }
 
     public void setX(double x) {
-        this.x = x;
+        super.setX(x);
     }
 
     public double getY() {
@@ -27,7 +25,7 @@ public class Point3D {
     }
 
     public void setY(double y) {
-        this.y = y;
+        super.setY(y);
     }
 
     public double getZ() {
