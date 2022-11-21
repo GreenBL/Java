@@ -7,6 +7,8 @@ public class Rectangle extends Shape{
     public Rectangle(){
         this.setWidth(2);
         this.setLength(1);
+        super.setColor("white");
+        super.setFilled(true);
     }
 
     public Rectangle(int w, int l){

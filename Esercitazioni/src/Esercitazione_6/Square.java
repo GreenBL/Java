@@ -8,6 +8,8 @@ public class Square extends Rectangle{
 
     public Square(int l){
         this.setSide(l);
+        super.setColor("white");
+        super.setFilled(true);
     }
 
     public void setSide(int l){
@@ -30,7 +32,8 @@ public class Square extends Rectangle{
 
     public String toString(){
         return "Tipo : Quadrato\n" + "Lato = " + this.getSide() +
-               "\nPerimetro = " + this.getPerimeter() + "\nArea = " + this.getArea() + "\n";
+               "\nPerimetro = " + this.getPerimeter() + "\nArea = " + this.getArea() + "\n" 
+               + "\nColore: " + super.getColor() + "Riempimento: " + (super.getFilled()? "Si" : "No");
     }
     
 }

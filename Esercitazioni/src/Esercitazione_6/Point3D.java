@@ -5,27 +5,13 @@ public class Point3D extends Point2D {
 
     private double z;
 
-    public Point3D() {}
+    public Point3D(){
+        this(0,0,0);
+    }
 
     public Point3D(double x, double y, double z) {
         super(x, y);
         this.setZ(z);
-    }
-
-    public double getX() {
-        return this.x;
-    }
-
-    public void setX(double x) {
-        super.setX(x);
-    }
-
-    public double getY() {
-        return this.y;
-    }
-
-    public void setY(double y) {
-        super.setY(y);
     }
 
     public double getZ() {
@@ -39,4 +25,9 @@ public class Point3D extends Point2D {
     public String toString() {
         return "(<" + this.getX() + " >,< " + this.y + " >,< " + this.z + " >)";
     }  
+
+    public boolean equals(Object other){
+        Point3D altro = (Point3D)other;
+        return (super.equals(altro)) && this.getZ() == altro.getZ();
+    }
 }

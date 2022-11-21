@@ -31,6 +31,6 @@ public class Shape{
     }
 
     public String toString(){
-        return "colore " + this.getColor() + "\nriempimento : " + this.getFilled();
+        return "\nColore: " + this.getColor() + "Riempimento: " + (this.getFilled()? "Si" : "No") + "\n";
     }
 }

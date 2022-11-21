@@ -1,14 +1,17 @@
 package bin.es6;
 import static java.lang.Math.PI;
 
-public class Circle{
+public class Circle extends Shape{
     private int radius;
 
     public Circle(){
+        super("bianco", false);
         this.setRadius(1);
+        
     }
 
-    public Circle(int newRadius){
+    public Circle(int newRadius, String color, boolean isFilled){
+        super(color, isFilled);
         this.setRadius(newRadius);
     }
 
@@ -30,6 +33,7 @@ public class Circle{
 
     public String toString(){
         return "Tipo : Cerchio\n" + "Raggio = " + this.getRadius() +
-               "\nCirconferenza = " + this.getCircumference() + "\nArea = " + this.getArea();
+               "\nCirconferenza = " + this.getCircumference() + "\nArea = " + this.getArea()
+               + super.toString();
     }
 }

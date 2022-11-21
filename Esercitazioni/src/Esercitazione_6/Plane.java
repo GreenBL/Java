@@ -1,6 +1,6 @@
 package bin.es6;
 
-public class Plane {
+public class Plane extends Line{
 
     private Point3D a;
     private Point3D b;
