@@ -52,7 +52,7 @@ public class AbbonatoPremium extends Abbonato{
         System.out.println("SPESA INPUT :" + cost);
         System.out.println("PERCENT SCONTO : " + super.getSconto());
         System.out.println("QUANTITA' DI BONUS DA 5 EURO : " + this.getBonus());
-        return (cost - (cost * (super.getSconto()/100)) - (this.getBonus() * 5));
+        return (cost - ((cost * (super.getSconto()/100)) + (this.getBonus() * 5)));
     }
 
 }

@@ -18,13 +18,17 @@ public class Partecipante{
         this.votes = voti;
     }
 
+    public void addVote(){
+        this.setVotes(this.getVotes() + 1);
+    }
+
     public int getVotes(){
         return this.votes;
     }
     // mi secca fare i getter...
 
     public String toString(){
-        return this.name + " [ " + this.getVotes() + " ]";
+        return this.name + " [ Voti totali: " + this.getVotes() + " ]";
     }
 
 }

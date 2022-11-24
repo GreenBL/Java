@@ -25,19 +25,33 @@ public class Classifica{
         classifica.add(new Partecipante("Philippa Curtis"));
         classifica.add(new Partecipante("Kobie Metcalfe"));
         classifica.add(new Partecipante("Leja Cohen"));
+
+        int tempNumb = 0;
+
+        String info = "A. Simula voto da numeri diversi\nB. Simula voto dallo stesso numero presettato\nC. Stampa la classifica"
         
-       // while (!(menu.toUpperCase()).equals("X")){
-         //   switch(menu.toUpperCase()){
-           //     case "A":
+        while (!(menu = (scanner.next().toUpperCase())).equals("X")){
+            switch(menu){
+                case "A":
                     System.out.print("\n" + "Arriva un nuovo voto da +39 ");
-                    int tempNumb = 300_000_000 + (int) (random() * 100_000_000);
+                    tempNumb = 300_000_000 + (int) (random() * 100_000_000);
                     System.out.println(tempNumb);
                     Votante tempVotante = new Votante(tempNumb);
                     System.out.println("debug random " + tempVotante.getVoted());
                     votanti.add(tempVotante);
+                    (classifica.get(tempVotante.getVoted() - 1)).addVote();
                     System.out.println("\n... Ha votato per " + (classifica.get(tempVotante.getVoted() - 1)).toString());
-
-            //}
-        //}
+                    break;
+                case "B":
+                    System.out.print("\n" + "Arriva un nuovo voto da +39 3349995588");
+                    tempVotante = new Votante(3349995588);
+                    if(!(votanti.contains(tempVotante))){
+                        votanti.add(tempVotante);
+                    } else {
+                        votanti.get() // boh
+                    }
+                    
+            }
+        }
     }
 }
