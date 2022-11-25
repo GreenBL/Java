@@ -4,5 +4,5 @@
 # <p style="color:OrangeRed">title_big</p>
 ## <p style="color:SpringGreen">(new)title</p> --->
 
-# <p style="color:OrangeRed">Interfacce</p>
-Correzione esercizi.
+# <p style="color:Turquoise">Esercitazione</p>
+Correzione Esercitazione 06.

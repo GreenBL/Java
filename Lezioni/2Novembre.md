@@ -30,7 +30,7 @@ public class SingletonExample{
 SingletonExample unicaIstanza = SingletonExample.getInstance();
 ```
 
-# <p style="color:OrangeRed">Ereditarietà</p>
+# <p style="color:red">Ereditarietà</p>
 ## Outline
 + Ereditarietà
 + Modificatore _final_
@@ -138,7 +138,140 @@ Meglio usare la _composizione_
 ## Ereditarietà e costruttori
 I costruttori della classe parent non vengono ereditati dal child.
 
-slide 11
+Per esempio, un oggetto di classe derivata "is a" oggetto di classe base. Come costruirlo?
++   Ricopiando il codice del costruttore di classe base e aggiungendo la parte specializzata?
++   Riuso?
+
+Ma, in Java, un qualsiasi costruttore (anche quello di default), come prima istruzione, invoca sempre un costruttore della superclasse.
+
+_Esempio_
+```java
+public class Libro{
+    public Libro(){
+        System.out.println("Costruito Libro!");
+    }
+}
+```
+```java
+public class LibroSuJava extends Libro{
+    public LibroSuJava(){
+        System.out.println("Costruito Libro Java!");
+    }
+}
+```
+<text style="color:Violet">new</text> <text style="color:turquoise">LibroSuJava</text>() comporta l'esecuzione del costruttore di `LibroSuJava` (in questo ordine)
+
+Il costruttore di `LibroSuJava` viene automaticamente modificato dal compilatore.
+
+```java
+public class LibroSuJava extends Libro{
+    public LibroSuJava(){
+        super(); // istruzione implicita se non fornita esplicitamente
+        System.out.println("Costruito Libro Java!");
+    }
+}
+```
+
+### Parola chiave <text style="color:deepskyblue"> _super_ </text>
+
+`super` vs `this`
++   `this`
+    +   Reference implicito all'oggetto corrente
++ `super`
+  + Reference implicito all'intersezione fra l'oggetto corrente e la sua superclasse.
+  Permette di accedere ai componenti della superclasse e in particolare al costruttore.
+
+_this_ invoca un altro costruttore della classe.
+_super_ invoca un costruttore della superclasse
+
++ Così come _this(...)_ , si usa _super(...)_ come prima istruzione del costruttore.
+  + Se non lo facciamo noi il compilatore provvederà
+
+_Nota su esempio_ : anche il costruttore di __Libro__ chiamerà il suo _super_
+
+## Costruttori multipli
+Inseriamo un costruttore parametrizzato all'interno della nostra classe _Libro_
+
+```java
+public class Libro{
+    . . .
+    public Libro(String titolo){
+        this.titolo = titolo;
+    }
+}
+```
+La sottoclasse _LibroSuJava_ non compila più. Il costruttore di _LibroSuJava_ chiama implicitamente _super()_ e quindi il costruttore _Libro()_ che però non è più fornito automaticamente quando abbiamo implementato quello parametrizzato.
+
+Per risolvere:
++   implementare il costruttore non parametrizzato _Libro()_
++   invocare _super()_ con il parametro adatto (_String_)
+
+_Esempio_
+```java
+public class Libro{
+    // . . .
+    public Libro (String titolo, String autore){
+        this(titolo);
+        setAutore(autore);
+    }
+    public Libro (String titolo){
+        this.titolo = titolo;
+    }
+    // . . .
+}
+```
+```java
+public class LibroSuJava extends Libro{
+    public LibroSuJava(String titolo){
+        super(titolo);
+    }
+    public LibroSuJava(String titolo, String autore){
+        super(titolo, autore);
+    }
+    // . . .
+}
+```
+
+### Chiamare metodi con _super_
+Così come _this_ chiama metodi dell'oggetto corrente, `super` può chiamare metodi della superclasse.
+
+Per esempio avrebbe senso nel caso in cui nella sottoclasse abbiamo ridefinito un metodo, ma vogliamo chiamare la versione della superclasse:
+
+<text style="color:deepskyblue">_nomemetodo()_</text> o <text style="color:deepskyblue">_this.nomemetodo()_</text> invocano il metodo della classe corrente.
+
+<text style=color:turquoise>_super.nomemetodo()_</text> invoca il metodo della superclasse.
+
+_Esempio_
+
+```java
+public class Persona {
+    private String nome, cognome;
+    public String toString(){
+        return nome + " " + cognome;
+    }
+    . . .
+    //accessor e mutator methods (set e get)
+}
+```
+```java
+public class Cliente extends Persona {
+    private String indirizzo, telefono;
+    public String toString() {
+        return super.toString() + "\n” + indirizzo + "\nTel:" + telefono;
+    }
+    . . .
+    //accessor e mutator methods (set e get)
+}
+```
+
+### Note sul _toString_
+Nell'esempio antecedente __Persona__ ha dichiarato un metodo _toString()_, ma in realtà ha solamente ridefinito il metodo _toString()_ della classe <text style=color:turquoise>Object</text>.
+
+E' un metodo che tutte le classi possono ridefinire per dare una rappresentazione testuale dell'oggetto. Se il metodo toString() non fosse stato riscritto, Persona avrebbe ereditato quello di Object che ritorna una stringa con il formato: 
+
++ _NomeClasse@IndirizzoEsadecimale_
+
+
 
 
 

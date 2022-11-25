@@ -9,15 +9,16 @@ public class Votante{
     public Votante(int numeroDiTelefono){
         this.setPhone(numeroDiTelefono);
         this.setVotes(0);
-        if(vota() != -1){
+        if(this.vota() != -1){
             this.setVoted(vota());
+            this.setVotes(this.getVotes() - 1);
         }
     }
 
     public int vota(){
         if(getVotes() <= 5){
             this.setVotes(this.getVotes() + 1);
-            return 1 + (int) (random() * 15);
+            return (int) (random() * 15);
         }
         return -1;
     }
