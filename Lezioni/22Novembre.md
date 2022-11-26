@@ -429,5 +429,5 @@ public class ChildInitializer extends ParentInitializer{
 ```
 ```mermaid
 graph TB;
-    A((Output)) --> B(Inizializzatore statico di ParentInitializer) --> C(Inizializzatore statico di ChildInitializer) --> D(Inizializzatore d'istanza di ParentInitializer) --> E(Costruttore di ParentInitializer) --> F(Inizializzatore d'istanza di ChildInitializer) --> G(Costruttore di ChildInitializer)
+    A((Output)) --- B(Inizializzatore statico di ParentInitializer) --> C(Inizializzatore statico di ChildInitializer) --> D(Inizializzatore d'istanza di ParentInitializer) --> E(Costruttore di ParentInitializer) --> F(Inizializzatore d'istanza di ChildInitializer) --> G(Costruttore di ChildInitializer)
     
