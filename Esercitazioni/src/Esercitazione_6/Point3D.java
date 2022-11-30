@@ -14,6 +14,11 @@ public class Point3D extends Point2D {
         this.setZ(z);
     }
 
+    public Point3D(Point2D point2D, double z){ // Extends a Point2D object to Point3D (adding Z axis value)
+        super(point2D.getX(), point2D.getY());
+        this.setZ(z);
+    }
+
     public double getZ() {
         return this.z;
     }
@@ -23,7 +28,7 @@ public class Point3D extends Point2D {
     }
 
     public String toString() {
-        return "(<" + this.getX() + " >,< " + this.y + " >,< " + this.z + " >)";
+        return "(<" + this.getX() + " >,< " + this.getY() + " >,< " + this.z + " >)";
     }  
 
     public boolean equals(Object other){
