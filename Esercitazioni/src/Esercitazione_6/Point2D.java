@@ -14,6 +14,12 @@ public class Point2D {
         this.setY(y);
     }
 
+    public Point2D(Object point3D){ // deranks a Point3D to Point2D (ignored Z axis)
+        Point3D punto3D = (Point3D)point3D;
+        this.setX(punto3D.getX());
+        this.setY(punto3D.getY());
+    }
+
     public double getX(){
         return this.x;
     }
