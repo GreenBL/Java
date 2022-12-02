@@ -13,9 +13,6 @@ public class AbbonatoEterogeneo{
         Input input = Input.getInstance();
         Scanner scanner = new Scanner(System.in);
         String menu;
-        //clienti.add(new Abbonato());
-        //clienti.add(new AbbonatoPremium());
-        // test di compilazione
             while(!(menu = input.nextChoice()).equals("0")){
                 switch(menu){
                     case "1": // Stampa lista degli abbonati
