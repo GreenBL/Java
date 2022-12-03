@@ -4,43 +4,6 @@
 # <p style="color:OrangeRed">title_big</p>
 ## <p style="color:SpringGreen">(new)title</p> --->
 
-### Regole dell'override
-
-Il metodo riscritto nella sottoclasse deve avere la stessa firma del metodo della superclasse.
-Il tipo di ritorno del metodo della sottoclasse deve coincidere con quello del metodo che si sta riscrivendo ( o di un tipo che estende il tipo di ritorno del metodo della superclasse).
-
-Il metodo ridefinito nella sottoclasse __non deve__ avere __minori privilegi di accesso__ del metodo originale della superclasse. Se un metodo è originariamente dicihiarato `protected` non si può ridefinire `private` (semmai `public`).
-
-_Esempio_
-. . .
-
-### Annotazione _Override_
-Se nel ridefinire un metodo sbagliamo una maiuscola nel nome, il compilatore lo intenderà come un nuovo metodo e non segnalerà errori.
-
-Nel package java.lang è definita l'annotazione __Override__
-
-Si può sfruttare per consentire il compilatore di controllare che effettivamente quel metodo è un Override, in caso negativo ci avvisa con un errore.
-
-_Esempio_
-```java
-public class Punto3D extends Punto {
-    @Override
-    public double distanzaDallOrigine() {
-    ...
-    }
-}
-// Compila
-```
-```java
-public class Punto3D extends Punto {
-    @Override
-    public double distanzadallOrigine() {
-    ... 
-    }
-}
-// Errore di compilazione, "dall" invece di "Dall"
-```
-
 ## Polimorfismo per dati
 C'è la possibilità di assegnare a un reference di una superclasse una istanza di una sua sottoclasse:
 ```java

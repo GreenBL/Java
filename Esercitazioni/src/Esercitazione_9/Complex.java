@@ -1,7 +1,7 @@
 package bin.es9;
 import java.lang.Math;
 
-public class Complex{
+public class Complex extends Numero implements Aritmetica{
     double real;
     double imma;
 
@@ -52,6 +52,34 @@ public class Complex{
         return Math.abs(dist);
     }
 
+    public Numero somma(Numero... numeri){
+        for(Numero instanceCheck : numeri){
+            if(!(instanceCheck instanceof Complex)){
+                System.out.println("ERRORE: Impossibile sommare tipi di numeri diversi!");
+                return null;
+            }
+        }
+        Complex ratSum = new Complex(0);
+        for(Numero tmp: numeri){
+            ratSum = ratSum.somma((Complex)tmp);
+        }
+        return ratSum;
+    }
+    
+    public Numero sottrai(Numero... numeri){
+        for(Numero instanceCheck : numeri){
+            if(!(instanceCheck instanceof Complex)){
+                System.out.println("ERRORE: Impossibile sottrarre tipi di numeri diversi!");
+                return null;
+            }
+        }
+        Complex ratSub = new Complex(0);
+        for(Numero tmp: numeri){
+            ratSub = ratSub.sottrai((Complex)tmp);
+        }
+        return ratSub;
+    }    
+
     public boolean equals(Complex other){
         double compD1 = Math.abs(this.getReal() - other.getReal());
         double compD2 = Math.abs(this.getImma() - other.getImma());
@@ -78,6 +106,4 @@ public class Complex{
     public String toString(){
         return this.getReal() + " + i(" + this.getImma() + ")";
     }
-
-
 }

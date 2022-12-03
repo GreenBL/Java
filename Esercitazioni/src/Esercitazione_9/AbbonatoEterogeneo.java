@@ -53,7 +53,7 @@ public class AbbonatoEterogeneo{
                         System.out.print("Inserire spesa: ");
                         double tempSpesa = scanner.nextDouble();
                         double tempSpesaScontata = (clienti.get(tempIndex)).acquista(tempSpesa);
-                        System.out.println("Il cliente ha speso " + tempSpesaScontata + "Su una spesa di " + tempSpesa); 
+                        System.out.println("Il cliente ha speso " + tempSpesaScontata + " Su una spesa di " + tempSpesa); 
                         break;
                     case "5": // Spesa complessiva, bonus cliente
                         break;
