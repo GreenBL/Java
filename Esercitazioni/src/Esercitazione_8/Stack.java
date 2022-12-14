@@ -28,9 +28,9 @@ public class Stack{
 	}
 	
 	public String pop(){
-		if(this.isEmpty() == false){
+		if(!this.isEmpty()){
 			this.lastPopped = (this.pila).get(0);
-			(this.pila).remove(0);
+			/*return*/(this.pila).remove(0); //remove dell'arraylist ritorna l'elemento eliminato
 			return this.lastPopped;
 		}
 		return null;
@@ -53,5 +53,9 @@ public class Stack{
 			buff = buff + "\n| " + string + " |\n";
 		}
 		return buff;
+	}
+
+	public boolean equals(Stack altro){
+		return this.pila.equals(altro.pila);
 	}
 }

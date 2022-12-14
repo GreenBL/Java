@@ -1,25 +1,39 @@
 package bin.es8;
+import bin.es6.Point2D;
 
 public class TestVeicoli{
     public static void main(String args[]){
-        LaMiaAuto grandePunto = new LaMiaAuto();
+        Point2D vel1 = new Point2D(0,0);
+        Point2D acc1 = new Point2D(5,0);
+        Point2D acc2 = new Point2D(10,0);
+        Point2D acc3 = new Point2D(15,0);
 
-        System.out.println(grandePunto.toString());
+        Automobile auto = new Automobile(vel1, acc2, 1300, "TARGATEST");
+        Bicicletta bici = new Bicicletta(vel1, acc1, "BMX");
+        Ciclomotore moto = new Ciclomotore(vel1, acc3, 65832, 250);
 
-        grandePunto.setAccelX(2);
+        System.out.println(auto.getPosVector());
+        System.out.println(bici.getPosVector());
+        System.out.println(moto.getPosVector());
 
-        grandePunto.muovi(5);
+        // non compila, ma si dovrebbero incapsulare tutte le variabili e risolvere problemi di ereditarieta'
 
-        System.out.println(grandePunto.toString());
+        // errore in avanti, rendere private le variabili di istanza e usare get e set
 
-        LaMiaAuto fiesta = new LaMiaAuto();
+        auto.muovi(5.0);
+        bici.muovi(5.0);
+        moto.muovi(5.0);
 
-        fiesta.setAccelX(4);
-        fiesta.muovi(5);
-        System.out.println(fiesta.toString());
+        System.out.println(auto.getPosVector());
+        System.out.println(bici.getPosVector());
+        System.out.println(moto.getPosVector());
 
-        fiesta.setAccelX(-2);
-        fiesta.muovi(2);
-        System.out.println(fiesta.toString());
+        auto.muovi(5.0);
+        bici.muovi(5.0);
+        moto.muovi(5.0);
+
+        System.out.println(auto.getPosVector());
+        System.out.println(bici.getPosVector());
+        System.out.println(moto.getPosVector());
     }
 }

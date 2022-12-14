@@ -5,13 +5,17 @@ public class Rectangle extends Shape implements Scalable, Drawable{
     private double length;
 
     public Rectangle(){
-        this.setWidth(2);
-        this.setLength(1);
-        super.setColor("White");
-        super.setFilled(true);
     }
 
     public Rectangle(double w, double l){
+        super.setColor("White");
+        super.setFilled(true);
+        this.setWidth(w);
+        this.setLength(l);
+    }
+
+    public Rectangle(double w, double l, String color, boolean fill){
+        super(color, fill);
         this.setWidth(w);
         this.setLength(l);
     }
@@ -39,21 +43,11 @@ public class Rectangle extends Shape implements Scalable, Drawable{
     public double getArea(){
         return this.getLength() * this.getWidth();
     }
-
+    
+    @Override
     public void scale(double scalar){
         this.setWidth(this.getWidth() * scalar);
         this.setLength(this.getLength() * scalar);
-    }
-
-    public void draw(){
-        String sideBuff1 = "";
-        String sideBuff2 = "";
-        for(int i = 0; i < (int) this.getWidth(); ++i){
-            sideBuff1 = sideBuff1 + "* ";
-        }
-        for(int i = 0; i < (int) this.getLength(); ++i){
-            System.out.println(sideBuff1);
-        }
     }
 
     public boolean equals(Object obj){
@@ -70,6 +64,7 @@ public class Rectangle extends Shape implements Scalable, Drawable{
         return false;
     }
 
+    @Override
     public String toString(){
         return "Tipo : Rettangolo\n" + "Base = " + this.getWidth() + "\nAltezza = " + this.getLength() +
                "\nPerimetro = " + this.getPerimeter() + "\nArea = " + this.getArea() + "\n" + getColor() + "\n" + getFilled(); 

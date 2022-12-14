@@ -1,61 +1,44 @@
 package bin.es8;
+import bin.es6.Point2D;
 
 public abstract class Veicolo{
-    private int x;
-    private int y;
-    private int vX;
-    private int vY;
-    private int aX;
-    private int aY;
-
-    public void setX(int newX){
-        this.x = newX;
-    }
-
-    public void setY(int newY){
-        this.y = newY;
-    }
-
-    public int getX(){
-        return this.x;
-    }
-
-    public int getY(){
-        return this.y;
-    }
-
-    public void setInitSpeedX(int speed){
-        this.vX = speed;
-    }
-
-    public int getInitSpeedX(){
-        return this.vX;
-    }
-
-    public void setInitSpeedY(int speed){
-        this.vY = speed;
-    }
-
-    public int getInitSpeedY(){
-        return this.vY;
-    }
-
-    public void setAccelX(int acceleration){
-        this.aX = acceleration;
-    }
-
-    public int getAccelX(){
-        return this.aX;
-    }
-
-    public void setAccelY(int acceleration){
-        this.aY = acceleration;
-    }
-
-    public int getAccelY(){
-        return this.aY;
-    }
+    public Point2D posVector = new Point2D(0,0);
+    public Point2D velVector;
+    public Point2D accVector;
     
-    public abstract void muovi(int time);
+    private double tempoTotale; // Delta T (∆t)
+
+    public Veicolo(){}
+
+    public abstract void muovi(double time);
+
+    public void incrementaTempoTotale(double deltaT){
+        this.tempoTotale += deltaT;
+    }
+
+    public double getTempoTotale(){
+        return this.tempoTotale;
+    }
+
+    public void setPosVector(double x, double y){
+        this.posVector.setX(x);
+        this.posVector.setY(y);
+    }
+
+    public Point2D getPosVector(){
+        return this.posVector;
+    }
+
+    public Point2D getVelVector(){
+        return this.velVector;
+    }
+
+    public Point2D getAccVector(){
+        return this.accVector;
+    }
+
+    public void printPosition(){
+        System.out.println(posVector);
+    }
 
 }

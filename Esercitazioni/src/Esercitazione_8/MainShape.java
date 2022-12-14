@@ -16,5 +16,37 @@ public class MainShape{
 
         System.out.println("");
         rettangolo.draw();
+
+        space();
+
+        Square quadrato = new Square(10.0D, "rosso", true);
+        quadrato.draw();
+        quadrato.scale(0.5D);
+        System.out.println("");
+        quadrato.draw();
+
+        space();
+
+        Circle cerchio = new Circle(1.5, "verde", false);
+        cerchio.draw();
+        cerchio.scale(2);
+        System.out.println("");
+        cerchio.draw();
+        
+
+
+        Drawable circle = new Circle(90.2, "arancione", true);
+        space();
+        circle.draw();
+
+        Shape rim = cerchio;
+        space();
+        System.out.println(rim.getArea());
+
+
+    }
+
+    private static void space(){
+        System.out.println("[]=====================================[]");
     }
 }

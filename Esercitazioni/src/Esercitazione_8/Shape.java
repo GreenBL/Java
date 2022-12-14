@@ -1,8 +1,15 @@
 package bin.es8;
 
-public abstract class Shape{
+public abstract class Shape implements Drawable, Scalable{
     public String color;
     public boolean isFilled;
+
+    public Shape(){}
+
+    public Shape(String color, boolean fill){
+        setColor(color);
+        setFilled(fill);
+    }
     
     public void setColor(String colore){
         this.color = colore;
@@ -20,7 +27,17 @@ public abstract class Shape{
         return isFilled;
     }
 
-    public abstract String toString();
+    public abstract double getArea();
+
+    public abstract void scale(double scalar);
+
+    public void draw(){
+        System.out.println(this.toString());
+    }
+
+    public String toString(){
+        return "\nColor:" + getColor() + "\nFilled:" + getFilled();
+    }
     
-    public abstract boolean equals(Object shape);
+    //public abstract boolean equals(Object shape);
 }
