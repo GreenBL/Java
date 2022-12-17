@@ -17,7 +17,7 @@ public class TestStack{
 					try {
 					stack.push(buffer);
 					}
-					catch (ArrayIndexOutOfBounds e) {
+					catch (IndexOutOfBoundsException e) {
 						e.printStackTrace();
 					}
 					scanner.nextLine();
@@ -26,7 +26,7 @@ public class TestStack{
 					try {
 						System.out.println("popped " + stack.pop());
 					}				
-					catch (ArrayIndexOutOfBounds e) {
+					catch (NullPointerException e) {
 						e.printStackTrace();
 					}
 					break;

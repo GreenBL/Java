@@ -24,7 +24,7 @@ public class Stack{
 			}
 		} else {
 			System.out.println("\n\u001B[31mCOULD NOT PUSH " + s + ", stack either full or duplicate object!\u001B[0m");
-			throw new ArrayIndexOutOfBounds();
+			throw new IndexOutOfBoundsException();
 		}
 	}
 	
@@ -34,7 +34,7 @@ public class Stack{
 			/*return*/(this.pila).remove(0); //remove dell'arraylist ritorna l'elemento eliminato
 			return this.lastPopped;
 		}
-		throw new ArrayIndexOutOfBounds();
+		throw new NullPointerException();
 	}
 	
 	public boolean isEmpty(){
