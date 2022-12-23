@@ -322,5 +322,148 @@ System.out.println(own);
 ```
 
 ## Metodi generici
+I metodi generici sono metodi che definiscono i propri tipi parametro. I tipi parametro hanno visibilita' di metodo e vanno
+definiti subito prima del tipo di ritorno (se presente)
+_Esempio_
+```java
+public class GenericMethod {
+    public static <N> String getValue(N number) {
+        String value = number.toString();
+        return value;
+    }
+    public static void main(String args[]) {
+        String value = GenericMethod.getValue(new Integer(25));
+        System.out.println(value);
+    }
+}
+```
 ## Parametri tipo bounded
+E' possibile creare tipi generici o metodi generici con restrizioni sui parametri tipo ammessi, quindi
+posso limitare il tipo parametro a sottoclassi:
+_Esempio_
+```java
+public class OwnGeneric <E extends Number> {}
+```
++ Potro' creare oggetti di $OwnGeneric<Integer>$, $OwnGeneric<Double>$ ecc.
 ## Parametri covarianti
+Quando facciamo override di metodi il tipo di ritorno del metodo ridefinito puo' essere una sottoclasse di quello del metodo originale.
+I parametri pero' devono essere dello stesso tipo. Possiamo usare instanceof ed eccezioni per verificare a runtime la correttezza dei parametri.
+Sarebbe molto meglio intercettare i problemi a tempo di compilazione, possiamo usare i generics.
+```java
+interface Cibo {String getColore();}
+
+interface Animale {void mangia(Cibo cibo);}
+
+public class Carnivoro implements Animale {
+    public void mangia(Cibo cibo) {
+        // un carnivoro potrebbe mangiare erbivori
+    }
+}
+
+public class Erbivoro implements Cibo, Animale {
+    public void mangia(Cibo cibo) {
+        // un erbivoro mangia erba
+    }
+    public String getColore() { . . . }
+}
+```
+Con le classi appena scritte carnivori ed erbivori potrebbero mangiare qualsiasi oggetto Cibo
++ Un carnivoro potrebbe mangiare erba
++ Un erbivoro potrebbe mangiare un altro erbivoro
+
+Ma noi vogliamo che un erbivoro mangi solo erba e un carnivoro solo erbivori.
+Definiamo controlli con le instanceof all'interno dei metodi mangia() e una CiboException da lanciare all'occorrenza.
+```java
+public class Carnivoro implements Animale { 
+    public void mangia(Cibo cibo) throws CiboException {
+        if (!(cibo instanceof Erbivoro)) {
+            throw new CiboException("Carnivoro deve mangiare " + "erbivori!");
+        }
+        ...
+    }
+    ...
+}
+
+public class Erbivoro implements Cibo, Animale {
+    public void mangia(Cibo cibo) throws CiboException {
+        if (!(cibo instanceof Erba)) { 
+            throw new CiboException("Erbivoro deve mangiare " + "erba!");
+            ...
+        }
+        ...
+    }
+    public String getColore() { . . . }
+}
+
+public class CiboException extends Exception {
+    public CiboException(String msg) { super(msg);}
+}
+```
+```java
+public class TestAnimali {
+    public static void main(String[] args) {
+        try {
+            Animale tigre = new Carnivoro();
+            Cibo erba = new Erba();
+            tigre.mangia(erba);
+        } catch (CiboException exc) {
+            exc.printStackTrace();
+        }
+    }
+}
+```
+Compila ma produce in esecuzione:
+```
+CiboException: Un carnivoro deve mangiare erbivori!
+        at Carnivoro.mangia(Carnivoro.java:4)
+        at TestAnimali.main(TestAnimali.java:6)
+```
+Ma se definiamo i metodi mangia() delle due classi in modo diverso non implementiamo correttamente l'interfaccia
+e il programma non compila:
++ Interfaccia
+  ```java
+  void mangia(Cibo cibo);
+  ```
++ Classe Carnivoro
+  ```java
+  public void mangia(Erbivoro e){. . .};
+  ```
++ Classe Erbivoro
+  ```java
+  public void mangia(Erba e){. . .};
+  ```
+
+Allora come soluzione utilizziamo i generics, definendo l'interfaccia Animale _parametrizzata_ in base al cibo che mangia e la
+implemento opportunamente nelle due classi.
+```java
+interface Animale<C extends Cibo> {
+    void mangia(C cibo);
+}
+
+public class Carnivoro<E extends Erbivoro> implements Animale<E> {
+    public void mangia(E erbivoro) {
+    //un carnivoro potrebbe mangiare erbivori o derivati
+    }
+}
+
+public class Erbivoro<E extends Erba> implements Cibo, Animale<E> {
+    public void mangia(E erba) {
+    //un erbivoro mangia erba o suoi derivati
+    }
+    public String getColore() {. . .}
+}   
+```
+```java
+public class TestAnimali {
+    public static void main(String[] args) {
+        Carnivoro<Erbivoro> tigre = new Carnivoro<Erbivoro>();
+        Erbivoro<Erba> erbivoro = new Erbivoro<Erba>();
+        Erba erba = new Erba();
+        tigre.mangia(erbivoro);
+        erbivoro.mangia(erba);
+        // tigre.mangia(erba); // COMPILE ERROR
+        // erbivoro.mangia(erbivoro); // COMPILE ERROR
+    }
+}
+```
+Compila ed esegue correttamente, e se provo a far mangiare cibo inadeguato non compila.
