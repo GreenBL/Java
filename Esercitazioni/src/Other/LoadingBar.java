@@ -1,9 +1,9 @@
 package bin.util;
 import bin.util.ScreenClearer;
 public class LoadingBar {
-    public static void main(String[] args) {
+    public static void load(String message) {
         ScreenClearer.clearScreen();
-        System.out.println("\u001b[24;0HLOADING IN PROGRESS");
+        System.out.println(message + "\u001b[24;0HLOADING");
         for(int i = 0; i < 120; i++) {
             try {
                 Thread.sleep((int)(Math.random() * 100));
